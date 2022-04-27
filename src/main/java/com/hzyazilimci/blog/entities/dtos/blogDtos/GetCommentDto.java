@@ -13,8 +13,9 @@ import java.time.LocalDate;
 public class GetCommentDto {
 
     private int id;
-    private String name;
+    private String username;
     private String email;
     private String commentBody;
     private LocalDate commentDate;
+    private String title;
 }

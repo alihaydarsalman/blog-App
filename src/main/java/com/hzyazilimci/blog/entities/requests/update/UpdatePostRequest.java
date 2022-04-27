@@ -21,14 +21,14 @@ public class UpdatePostRequest {
 
     @NotBlank
     @NotNull
-    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ.!?, ]{5,50}",
+    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ:;.!'?, ]{5,50}",
             message = ValidationMessages.PostValidationMessages.POST_TITLE_VALIDATION)
     private String title;
-    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ.!?,_*-/0123456789 ]{5,50}",
+    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ.!?',_:;*-/0123456789 ]{5,50}",
             message = ValidationMessages.PostValidationMessages.POST_DESCRIPTION_VALIDATION)
     private String description;
 
-    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ.!?,_*-/0123456789 ]{20,5000}",
+    @Pattern(regexp = "^[abcçdefgğhıijklmnoöprsştuüvwqxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWQXYZ.!?,:';_*-/0123456789 ]{20,5000}",
             message = ValidationMessages.PostValidationMessages.POST_CONTENT_VALIDATION)
     private String content;
 }

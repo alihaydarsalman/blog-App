@@ -21,7 +21,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.Collections;
 
@@ -99,6 +98,12 @@ public class UserManager implements UserService {
         return new SuccessResult(BusinessMessages.GlobalSuccessMessages.SUCCESS_UPDATE);
     }
 
+    @Override
+    public User getUserById(int userId){
+        isUserExistById(userId);
+
+        return this.userDao.findById(userId);
+    }
 
     private void isUserExistById(int id){
         if (!userDao.existsById(id)){

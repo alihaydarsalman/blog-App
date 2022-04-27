@@ -20,18 +20,16 @@ public class Comment {
     @Column(name = "comment_id")
     private int id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "comment_body")
     private String commentBody;
 
     @CreationTimestamp
     @Column(name = "comment_date")
     private LocalDate commentDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)

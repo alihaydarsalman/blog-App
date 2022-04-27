@@ -2,6 +2,7 @@ package com.hzyazilimci.blog.business.concretes;
 
 import com.hzyazilimci.blog.business.abstracts.CommentService;
 import com.hzyazilimci.blog.business.abstracts.PostService;
+import com.hzyazilimci.blog.business.abstracts.UserService;
 import com.hzyazilimci.blog.business.constants.messages.BusinessMessages;
 import com.hzyazilimci.blog.core.utilities.exceptions.BusinessException;
 import com.hzyazilimci.blog.core.utilities.mapping.ModelMapperService;
@@ -15,6 +16,7 @@ import com.hzyazilimci.blog.entities.requests.create.CreateCommentRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdateCommentRequest;
 import com.hzyazilimci.blog.entities.sourceEntities.Comment;
 import com.hzyazilimci.blog.entities.sourceEntities.Post;
+import com.hzyazilimci.blog.entities.sourceEntities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
@@ -27,12 +29,15 @@ public class CommentManager implements CommentService {
     private final ModelMapperService modelMapperService;
     private final CommentDao commentDao;
     private final PostService postService;
+    private final UserService userService;
 
     @Autowired
-    public CommentManager(ModelMapperService modelMapperService, CommentDao commentDao, PostService postService) {
+    public CommentManager(ModelMapperService modelMapperService, CommentDao commentDao,
+                          PostService postService, UserService userService) {
         this.modelMapperService = modelMapperService;
         this.commentDao = commentDao;
         this.postService = postService;
+        this.userService = userService;
     }
 
     @Override
@@ -79,10 +84,12 @@ public class CommentManager implements CommentService {
     public Result submitComment(CreateCommentRequest createCommentRequest) {
 
         Post post = this.postService.getPostById(createCommentRequest.getPostId());
+        User user = this.userService.getUserById(createCommentRequest.getUserId());
 
         Comment comment = this.modelMapperService.forRequest().map(createCommentRequest, Comment.class);
         comment.setId(0);
         comment.setPost(post);
+        comment.setUser(user);
         this.commentDao.save(comment);
 
         return new SuccessResult(BusinessMessages.GlobalSuccessMessages.SUCCESS_ADD);
@@ -94,13 +101,14 @@ public class CommentManager implements CommentService {
         isCommentExistsById(updateCommentRequest.getCommentId());
 
         Post post = this.postService.getPostById(updateCommentRequest.getPostId());
+        User user = this.userService.getUserById(updateCommentRequest.getUserId());
 
         Comment comment = this.commentDao.findById(updateCommentRequest.getCommentId());
         comment.setPost(post);
         comment.setCommentBody(updateCommentRequest.getCommentBody());
-        comment.setEmail(updateCommentRequest.getEmail());
-        comment.setName(updateCommentRequest.getName());
         comment.setCommentDate(LocalDate.now());
+        comment.setUser(user);
+
         this.commentDao.save(comment);
 
         return new SuccessResult(BusinessMessages.GlobalSuccessMessages.SUCCESS_UPDATE);
