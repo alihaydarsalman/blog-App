@@ -4,7 +4,7 @@ import com.hzyazilimci.blog.business.abstracts.PostService;
 import com.hzyazilimci.blog.business.constants.messages.AppMessages;
 import com.hzyazilimci.blog.core.utilities.results.DataResult;
 import com.hzyazilimci.blog.core.utilities.results.Result;
-import com.hzyazilimci.blog.entities.dtos.GetPostDto;
+import com.hzyazilimci.blog.entities.dtos.blogDtos.GetPostDto;
 import com.hzyazilimci.blog.entities.requests.create.CreatePostRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdatePostRequest;
 import org.springframework.beans.factory.annotation.Autowired;

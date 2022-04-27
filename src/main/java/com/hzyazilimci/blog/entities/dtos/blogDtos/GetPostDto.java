@@ -1,4 +1,4 @@
-package com.hzyazilimci.blog.entities.dtos;
+package com.hzyazilimci.blog.entities.dtos.blogDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

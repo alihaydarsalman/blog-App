@@ -28,4 +28,13 @@ public final class BusinessMessages {
         public static final String EMAIL_ALREADY_EXISTS = "Email already has exists.";
         public static final String USERNAME_EXISTS = "Username already has exists.";
     }
+
+
+    public static final class JWTExceptionMessages{
+        public static final String INVALID_JWT_SIGNATURE = "Invalid JWT signature.";
+        public static final String INVALID_JWT_TOKEN = "Invalid JWT token.";
+        public static final String EXPIRED_TOKEN = "Expired JWT token.";
+        public static final String UNSUPPORTED_TOKEN = "Unsupported JWT token.";
+        public static final String EMPTY_JWT_CLAIMS = "JWT claims string is empty.";
+    }
 }

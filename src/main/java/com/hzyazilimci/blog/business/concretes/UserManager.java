@@ -28,11 +28,11 @@ import java.util.Collections;
 @Service
 public class UserManager implements UserService {
 
-    private ModelMapperService modelMapperService;
-    private AuthenticationManager authenticationManager;
-    private PasswordEncoder passwordEncoder;
-    private UserDao userDao;
-    private RoleDao roleDao;
+    private final ModelMapperService modelMapperService;
+    private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
+    private final UserDao userDao;
+    private final RoleDao roleDao;
 
     @Autowired
     public UserManager(@Lazy ModelMapperService modelMapperService,
@@ -72,6 +72,7 @@ public class UserManager implements UserService {
         User user = this.modelMapperService.forRequest().map(createUserRequest, User.class);
         user.setId(0);
         user.setRoles(Collections.singleton(role));
+        user.setPassword(passwordEncoder.encode(createUserRequest.getPassword()));
         userDao.save(user);
 
         return new SuccessResult(BusinessMessages.GlobalSuccessMessages.SUCCESS_REGISTER);
@@ -84,8 +85,6 @@ public class UserManager implements UserService {
         isUserExistsByUserName(updateUserRequest.getUsername());
         isUserExistsByUserName(updateUserRequest.getEmail());
 
-        Role role = this.roleDao.findByRoleName("ROLE_USER").get();
-
         User user = this.userDao.findById(updateUserRequest.getId());
         user.setId(updateUserRequest.getId());
         user.setName(updateUserRequest.getName());
@@ -93,6 +92,7 @@ public class UserManager implements UserService {
         user.setUsername(updateUserRequest.getUsername());
         user.setEmail(updateUserRequest.getEmail());
         user.setRegisterDate(LocalDate.now());
+        user.setPassword(passwordEncoder.encode(updateUserRequest.getPassword()));
 
         this.userDao.save(user);
 
@@ -117,5 +117,4 @@ public class UserManager implements UserService {
             throw new BusinessException(BusinessMessages.UserExceptionMessages.USERNAME_EXISTS);
         }
     }
-
 }

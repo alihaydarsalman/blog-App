@@ -9,7 +9,7 @@ import com.hzyazilimci.blog.core.utilities.results.Result;
 import com.hzyazilimci.blog.core.utilities.results.SuccessDataResult;
 import com.hzyazilimci.blog.core.utilities.results.SuccessResult;
 import com.hzyazilimci.blog.dataAccess.PostDao;
-import com.hzyazilimci.blog.entities.dtos.GetPostDto;
+import com.hzyazilimci.blog.entities.dtos.blogDtos.GetPostDto;
 import com.hzyazilimci.blog.entities.requests.create.CreatePostRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdatePostRequest;
 import com.hzyazilimci.blog.entities.sourceEntities.Post;

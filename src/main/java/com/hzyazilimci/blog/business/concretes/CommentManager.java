@@ -10,7 +10,7 @@ import com.hzyazilimci.blog.core.utilities.results.Result;
 import com.hzyazilimci.blog.core.utilities.results.SuccessDataResult;
 import com.hzyazilimci.blog.core.utilities.results.SuccessResult;
 import com.hzyazilimci.blog.dataAccess.CommentDao;
-import com.hzyazilimci.blog.entities.dtos.GetCommentDto;
+import com.hzyazilimci.blog.entities.dtos.blogDtos.GetCommentDto;
 import com.hzyazilimci.blog.entities.requests.create.CreateCommentRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdateCommentRequest;
 import com.hzyazilimci.blog.entities.sourceEntities.Comment;

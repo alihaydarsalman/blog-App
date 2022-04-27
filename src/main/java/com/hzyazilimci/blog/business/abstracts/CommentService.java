@@ -2,7 +2,7 @@ package com.hzyazilimci.blog.business.abstracts;
 
 import com.hzyazilimci.blog.core.utilities.results.DataResult;
 import com.hzyazilimci.blog.core.utilities.results.Result;
-import com.hzyazilimci.blog.entities.dtos.GetCommentDto;
+import com.hzyazilimci.blog.entities.dtos.blogDtos.GetCommentDto;
 import com.hzyazilimci.blog.entities.requests.create.CreateCommentRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdateCommentRequest;
 import java.util.List;

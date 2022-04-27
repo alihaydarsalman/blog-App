@@ -2,7 +2,7 @@ package com.hzyazilimci.blog.business.abstracts;
 
 import com.hzyazilimci.blog.core.utilities.results.DataResult;
 import com.hzyazilimci.blog.core.utilities.results.Result;
-import com.hzyazilimci.blog.entities.dtos.GetPostDto;
+import com.hzyazilimci.blog.entities.dtos.blogDtos.GetPostDto;
 import com.hzyazilimci.blog.entities.requests.create.CreatePostRequest;
 import com.hzyazilimci.blog.entities.requests.update.UpdatePostRequest;
 import com.hzyazilimci.blog.entities.sourceEntities.Post;
