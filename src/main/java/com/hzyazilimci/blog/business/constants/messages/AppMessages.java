@@ -1,6 +1,6 @@
-package com.hzyazilimci.blog.business.constants.AppCons;
+package com.hzyazilimci.blog.business.constants.messages;
 
-public final class AppConstants {
+public final class AppMessages {
 
     public static final String DEFAULT_PAGE_NO = "1";
     public static final String DEFAULT_PAGE_SIZE = "10";

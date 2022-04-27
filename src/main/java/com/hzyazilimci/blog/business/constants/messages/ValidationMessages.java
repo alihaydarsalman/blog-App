@@ -4,6 +4,7 @@ public final class ValidationMessages {
 
     public static final class GeneralValidationMessages {
         public static final String ID_CANNOT_LESS_THEN_ONE="Id cannot less than or equal zero.";
+        public static final String PASSWORD_VALIDATION_ERROR = "Password must contain at least digit, lowercase and uppercase and at least once special chars and password size has to be 8-20 chars.";
     }
 
     public static final class PostValidationMessages {
