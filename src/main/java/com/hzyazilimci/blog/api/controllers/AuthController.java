@@ -1,11 +1,10 @@
 package com.hzyazilimci.blog.api.controllers;
 
-
 import com.hzyazilimci.blog.business.abstracts.UserService;
 import com.hzyazilimci.blog.core.utilities.results.Result;
-import com.hzyazilimci.blog.entities.requests.create.CreateUserRequest;
-import com.hzyazilimci.blog.entities.requests.loginRequest.LoginRequest;
-import com.hzyazilimci.blog.entities.requests.update.UpdateUserRequest;
+import com.hzyazilimci.blog.entities.requests.userRequests.CreateUserRequest;
+import com.hzyazilimci.blog.entities.requests.userRequests.LoginRequest;
+import com.hzyazilimci.blog.entities.requests.userRequests.UpdateUserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

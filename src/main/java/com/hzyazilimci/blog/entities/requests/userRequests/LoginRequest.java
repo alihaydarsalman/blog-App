@@ -1,4 +1,4 @@
-package com.hzyazilimci.blog.entities.requests.loginRequest;
+package com.hzyazilimci.blog.entities.requests.userRequests;
 
 import com.hzyazilimci.blog.business.constants.messages.ValidationMessages;
 import lombok.AllArgsConstructor;
