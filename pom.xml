@@ -14,7 +14,7 @@
 	<name>restful.blogApp</name>
 	<description>Spring Boot blog application rest api&apos;s</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
