@@ -63,6 +63,4 @@ public class PostsController {
                                                      @RequestParam(defaultValue = AppMessages.DEFAULT_SORT_DIRECTION, required = false )String sortDirection){
         return this.postService.getAllSorted(pageNo, pageSize,sortBy,sortDirection);
     }
-
-
 }
