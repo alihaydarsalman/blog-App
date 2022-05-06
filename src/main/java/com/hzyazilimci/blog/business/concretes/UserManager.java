@@ -44,7 +44,6 @@ public class UserManager implements UserService {
         this.userDao = userDao;
         this.roleDao = roleDao;
     }
-
     @Override
     public Result logIn(LoginRequest loginRequest) {
 
@@ -56,10 +55,8 @@ public class UserManager implements UserService {
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
         return new SuccessResult(BusinessMessages.GlobalSuccessMessages.SUCCESS_LOG_IN);
     }
-
     @Override
     public Result signUp(CreateUserRequest createUserRequest) {
 

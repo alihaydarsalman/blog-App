@@ -18,12 +18,10 @@ public class AuthController {
     public AuthController(UserService userService) {
         this.userService = userService;
     }
-
     @PostMapping("/signUp")
     public Result signUp(@RequestBody CreateUserRequest createUserRequest){
         return this.userService.signUp(createUserRequest);
     }
-
     @PostMapping("/logIn")
     public Result logIn(@RequestBody @Valid LoginRequest loginRequest){
         return this.userService.logIn(loginRequest);

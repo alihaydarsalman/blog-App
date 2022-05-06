@@ -10,7 +10,6 @@ import com.hzyazilimci.blog.entities.requests.update.UpdatePostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -23,6 +22,23 @@ public class PostsController {
     @Autowired
     public PostsController(PostService postService) {
         this.postService = postService;
+    }
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping
+    public Result createPost(@RequestBody @Valid CreatePostRequest createPostRequest){
+        return this.postService.createPost(createPostRequest);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping
+    public Result updatePost(@RequestBody @Valid UpdatePostRequest updatePostRequest){
+        return this.postService.updatePost(updatePostRequest);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping
+    public Result deletePost(@RequestParam int postId){
+        return this.postService.deletePost(postId);
     }
 
     @GetMapping("/getAll")
@@ -48,21 +64,5 @@ public class PostsController {
         return this.postService.getAllSorted(pageNo, pageSize,sortBy,sortDirection);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping
-    public Result createPost(@RequestBody @Valid CreatePostRequest createPostRequest){
-        return this.postService.createPost(createPostRequest);
-    }
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping
-    public Result updatePost(@RequestBody @Valid UpdatePostRequest updatePostRequest){
-        return this.postService.updatePost(updatePostRequest);
-    }
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping
-    public Result deletePost(@RequestParam int postId){
-        return this.postService.deletePost(postId);
-    }
 }
